@@ -1,10 +1,11 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
-import Link from "./Link";
+
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import ActionButton from "../ActionButton";
+import Link from "./Link";
 
 type Props = {
   selectedPage: string;
@@ -90,28 +91,24 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
               setIsMenuToggled={setIsMenuToggled}
-              isMenuToggled={isMenuToggled}
             />
             <Link
               page='Benefits'
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
               setIsMenuToggled={setIsMenuToggled}
-              isMenuToggled={isMenuToggled}
             />
             <Link
               page='Our Classes'
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
               setIsMenuToggled={setIsMenuToggled}
-              isMenuToggled={isMenuToggled}
             />
             <Link
               page='Contact Us'
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
               setIsMenuToggled={setIsMenuToggled}
-              isMenuToggled={isMenuToggled}
             />
           </div>
         </div>

@@ -5,8 +5,7 @@ type Props = {
   page: string;
   selectedPage: string;
   setSelectedPage: (value: SelectedPage) => void;
-  setIsMenuToggled: (value: boolean) => void;
-  isMenuToggled: boolean;
+  setIsMenuToggled?: (value: boolean) => void;
 };
 
 const Link = ({
@@ -14,21 +13,22 @@ const Link = ({
   selectedPage,
   setSelectedPage,
   setIsMenuToggled,
-  isMenuToggled,
 }: Props) => {
   const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
-  const handleOnClick = () => {
+
+  const handleClick = (lowerCasePage: SelectedPage) => {
     setSelectedPage(lowerCasePage);
-    setIsMenuToggled(!isMenuToggled);
+    setIsMenuToggled && setIsMenuToggled(false);
   };
 
   return (
     <AnchorLink
-      className={`${
-        selectedPage === lowerCasePage ? "text-primary-500" : null
-      } transition duration-500 hover:text-primary-300`}
+      className={`${selectedPage === lowerCasePage ? "text-primary-500" : ""} 
+      transition duration-500 hover:text-primary-300`}
       href={`#${lowerCasePage}`}
-      onClick={handleOnClick}
+      onClick={() => {
+        handleClick(lowerCasePage);
+      }}
     >
       {page}
     </AnchorLink>
